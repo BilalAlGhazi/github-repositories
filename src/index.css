@@ -28,3 +28,7 @@ html,body,.container {
 display: table-cell;
 float: none;
 }
+
+.navbar{
+  overflow: auto;
+}

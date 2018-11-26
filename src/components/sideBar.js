@@ -9,7 +9,13 @@ class SideBar extends React.Component {
   }
   renderRepositories = (repositories) => {
     return repositories.map((item, key) => {
-      return (<RepositoryListItem name={item.name} watchers_count={item.watchers_count} />);
+      return (
+        <RepositoryListItem 
+          name={item.name} 
+          watchers_count={item.watchers_count} 
+          id={item.id}
+        />
+      );
     });
   }
   render(){
@@ -34,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
- export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

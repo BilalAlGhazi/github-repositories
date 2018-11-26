@@ -1,10 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RepostoryListItem = (props) => 
   {
-    console.log(props);
     return (
-    < div>{props.name} / {props.watchers_count}</div>
+    < div>
+      <Link to={"/repo/" + props.name}>{props.name}</Link>
+      <span class="badge badge-light">
+        <i class="far fa-eye"></i>
+        {props.watchers_count}
+      </span>
+    </div>
     );
   }
 ;
