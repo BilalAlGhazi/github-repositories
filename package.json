@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.22",
+    "apollo-link-context": "^1.0.10",
+    "axios": "^0.18.0",
     "graphql": "^14.0.2",
     "react": "^16.6.3",
     "react-apollo": "^2.3.1",
