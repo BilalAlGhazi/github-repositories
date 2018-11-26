@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { 
   GET_REPOSITORIES_SUCCESS, 
   GET_REPOSITORY_SUCCESS,
@@ -6,7 +7,7 @@ import {
 
 const initialState = {
   repositoriesList: [],
-  selectedRepository: ""
+  selectedRepository: {}
 };
 
 export const repoReducer = (state = initialState, action) => {
@@ -14,9 +15,10 @@ export const repoReducer = (state = initialState, action) => {
     case GET_REPOSITORIES_SUCCESS:
       return { ...state, repositoriesList: action.payload };
     case SELECT_REPOSITORY: 
+      const repositoryObj = _.find(state.repositoriesList, {"name": action.payload});
       return {
         ...state,
-        selectedRepository: action.payload
+        selectedRepository: repositoryObj
       }
   }
   return state
