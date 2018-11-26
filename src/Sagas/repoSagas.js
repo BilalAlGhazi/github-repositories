@@ -1,14 +1,41 @@
-import {fork, put, takeEvery } from "redux-saga/effects";
-import { GET_REPOSITORIES } from "../actions/actionTypes";
+import {fork, put, takeEvery, call } from "redux-saga/effects";
+import axios from "axios";
+import { GET_REPOSITORIES, GET_REPOSITORIES_SUCCESS, GET_REPOSITORIES_ERROR } from "../actions/actionTypes";
+import AplClient from "../Utilities/apollo";
+import { getRepositories } from "../Utilities/apoloQueries";
+
+function retrieveRepositories(){
+  return axios.request({
+    method: "get",
+    url: "https://api.github.com/user/69631/repos?page=2"
+  });
+}
 
 export function* getRepositoriesList() {
   try {
-    // //make code changes relevant to mapping
-    // const providerTypeList = providerTypes;
-    // yield put(loadProviderTypeList(providerTypeList));
+    // const result = yield AplClient.getClient()
+    //   .query({ query: getRepositories });
+    // yield put(
+    //   {
+    //     type: GET_REPOSITORIES_SUCCESS,
+    //     payload: result
+    //   }
+    // );
+    let result = yield call(retrieveRepositories);
+
+    yield put(
+      {
+        type: GET_REPOSITORIES_SUCCESS,
+        payload: result.data
+      }
+    );
   } catch (error) {
-    //No Error as we are loading from mock json for now.
-    //In Future it will be decided from where we need to get the provider types
+    yield put(
+      {
+        type: GET_REPOSITORIES_ERROR,
+        payload: error
+      }
+    );
   }
 }
 
