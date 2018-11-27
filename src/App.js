@@ -9,18 +9,18 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-          <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Repositories by facebook</a>
+        <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+          <a className="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Repositories by facebook</a>
         </nav>
 
-        <div class="container-fluid">
-        <div class="row">
-          <nav class="col-md-3 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
+        <div className="container-fluid">
+        <div className="row">
+          <nav className="col-md-3 d-none d-md-block bg-light sidebar">
+            <div className="sidebar-sticky">
               <SideBar />
             </div>
           </nav>
-          <main role="main" class="col-md-8 ml-sm-auto col-lg-9 pt-3 px-4">
+          <main role="main" className="col-md-8 ml-sm-auto col-lg-9 pt-3 px-4">
             <Switch>
               <Route exact
                 path="/" key="home"
@@ -42,13 +42,13 @@ export default App;
 
 
 {/* <Fragment>
-        <nav class="navbar navbar-light bg-light">
-          <a class="navbar-brand" href="#">facebook Repositories on GitHub</a>
+        <nav className="navbar navbar-light bg-light">
+          <a className="navbar-brand" href="#">facebook Repositories on GitHub</a>
         </nav>
-        <div class="container">
-          <div class="row justify-content-start">
-            <div class="col-md-3">Hello</div>
-            <div class="col-md-9 nofloat">
+        <div className="container">
+          <div className="row justify-content-start">
+            <div className="col-md-3">Hello</div>
+            <div className="col-md-9 nofloat">
               <Switch>
                 <Route exact
                   path="/" key="home"

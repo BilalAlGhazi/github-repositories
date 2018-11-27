@@ -20,7 +20,7 @@ class SideBar extends React.Component {
   }
   render(){
     return (
-      <ul class="nav flex-column">
+      <ul className="nav flex-column">
         { this.renderRepositories(this.props.repositories) }
       </ul>
     );

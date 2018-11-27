@@ -6,15 +6,17 @@ class Contributors extends React.Component {
   renderContributors = () => {
     return this.props.contributors.map((item, key) => {
       return (
-        <div class="card" key={key}>
-          <img class="card-img-top" src={item.avatar_url} alt={item.login} />
-          <div class="card-body">
-            <h5 class="card-title">{item.login}</h5>
-            <button 
-                onClick={() => window.location.assign(item.html_url)}
-                class="btn btn-sm btn-outline-secondary"
-              >Show on GitHub</button>
-            </div>
+        <div className="col-lg-3 col-md-4 col-sm-6 contributor-card">
+          <div className="card" key={key}>
+            <img className="card-img-top" src={item.avatar_url} alt={item.login} />
+            <div className="card-body">
+              <h5 className="card-title">{item.login}</h5>
+              <button 
+                  onClick={() => window.location.assign(item.html_url)}
+                  className="btn btn-sm btn-outline-secondary"
+                >Show on GitHub</button>
+              </div>
+          </div>
         </div>
       )
     });
@@ -25,11 +27,11 @@ class Contributors extends React.Component {
   render(){
     return (
       <Fragment>
-        <h3 class="border-bottom">Contributors</h3>
-        <div class="card-columns">
+        <h3 className="border-bottom">Contributors</h3>
+        <div className="row">
           {this.renderContributors()}
         </div>
-        { this.props.hasMoreResults && <button type="button" onClick={() => this.loadMore()} class="btn btn-secondary">Load more</button>}
+        { this.props.hasMoreResults && <button type="button" onClick={() => this.loadMore()} className="btn btn-secondary">Load more</button>}
       </Fragment>
     );
   }

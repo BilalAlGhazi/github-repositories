@@ -19,52 +19,60 @@ class RepositoryInfo extends React.Component {
   renderRepositoryDetails = () => {
     return(
       <Fragment>
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-          <h1 class="h2">{ this.props.selectedRepository.name }</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
+        <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <h1 className="h2">{ this.props.selectedRepository.name }</h1>
+          <div className="btn-toolbar mb-2 mb-md-0">
+            <div className="btn-group mr-2">
               <button 
                 onClick={() => this.openProjectPage(this.props.selectedRepository.html_url)}
-                class="btn btn-sm btn-outline-secondary"
+                className="btn btn-sm btn-outline-secondary"
               >Show on GitHub</button>
             </div>
           </div>
         </div>
-        {this.props.selectedRepository.description}
-        <div class="row">
-          <div class="col-2 col-sm">
-            <span class="badge badge-secondary">
-              <i class="fas fa-code"></i>
-              Language: {this.props.selectedRepository.language}
-            </span>
-          </div>
-          <div class="col-2 col-sm">
-            <span class="badge badge-secondary">
-              <i class="far fa-eye watchers-icon"></i>
-              Watchers: {this.props.selectedRepository.watchers_count}
-            </span>
-          </div>
-          <div class="col-2 col-sm">
-            <span class="badge badge-secondary">
-              <i class="fas fa-exclamation-triangle"></i>
-              Open Issues: {this.props.selectedRepository.open_issues}
-            </span>
-          </div>
-          <div class="col-2 col-sm">
-            <span class="badge badge-secondary">
-              <i class="fas fa-code-branch"></i>
-              Forks: {this.props.selectedRepository.forks_count}
-            </span>
-          </div>
+        <div className="row">
+          <div className="col-xs-6 col-md-3 col-lg-3 no-padding">
+						<div className="panel panel-teal panel-widget border-right">
+							<div className="row no-padding"><em className="fa fa-xl fa-code color-blue"></em>
+								<div className="large">{this.props.selectedRepository.language}</div>
+								<div className="text-muted">Language</div>
+							</div>
+						</div>
+					</div>
+          <div className="col-xs-6 col-md-3 col-lg-3 no-padding">
+						<div className="panel panel-teal panel-widget border-right">
+							<div className="row no-padding"><em className="fa fa-xl fa-eye color-blue"></em>
+								<div className="large">{this.props.selectedRepository.watchers_count}</div>
+								<div className="text-muted">Watchers</div>
+							</div>
+						</div>
+					</div>
+          <div className="col-xs-6 col-md-3 col-lg-3 no-padding">
+						<div className="panel panel-teal panel-widget border-right">
+							<div className="row no-padding"><em className="fa fa-xl fa-exclamation-triangle color-blue"></em>
+								<div className="large">{this.props.selectedRepository.open_issues}</div>
+								<div className="text-muted">Issues</div>
+							</div>
+						</div>
+					</div>
+          <div className="col-xs-6 col-md-3 col-lg-3 no-padding">
+						<div className="panel panel-widget border-right">
+							<div className="row no-padding"><em className="fa fa-xl fa-code-branch color-blue"></em>
+								<div className="large">{this.props.selectedRepository.forks_count}</div>
+								<div className="text-muted">Forks</div>
+							</div>
+						</div>
+					</div>
         </div>
+        {this.props.selectedRepository.description}
         <Contributors name={this.props.selectedRepository.name} />
       </Fragment>
     );
   }
   renderDefaultPage = () => {
     return(
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h1 class="h2">Select a repository</h1>
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 className="h2">Select a repository</h1>
         
       </div>
     );
