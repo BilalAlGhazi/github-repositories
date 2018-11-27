@@ -4,10 +4,27 @@ import { selectRepository } from "../actions/repoActions";
 import Contributors from "./contributors";
 
 class RepositoryInfo extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      selectionPending: false
+    }
+  }
   componentDidMount = () => {
-    this.props.selectRepository(this.props.match.params.repositoryName);
+    // if the page was refreshed, this will be called before the list of repositories is ready
+    // We need to select after the results are ready.
+    if (this.props.repositories.length > 0){
+      this.props.selectRepository(this.props.match.params.repositoryName);
+    } else {
+      this.setState({selectionPending: true});
+    }
   }
   componentDidUpdate = (prevProps) => {
+    // if the repositories are loaded and there is selection pending, execute the selection
+    if (this.state.selectionPending && (this.props.repositories.length > 0)){
+      this.setState({selectionPending: false});
+      this.props.selectRepository(this.props.match.params.repositoryName);
+    }
     // Check if the route was changed
     if (this.props.match.params.repositoryName !== prevProps.match.params.repositoryName){
       this.props.selectRepository(this.props.match.params.repositoryName);
