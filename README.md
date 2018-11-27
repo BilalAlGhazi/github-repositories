@@ -1,44 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Facebook Repository Viewer
 
-## Available Scripts
+the GitHub API.
+Facebook repository viewer is a sample app based on React JS to demonstrate basic interaction with the application is built on V3 of the API rather than the GraphQL V4 because of some issues faced in sorting the results.
 
-In the project directory, you can run:
+## About the Project
 
-### `npm start`
+The project is created using create-react-app to minimize the setup work required. It uses Axios to handel API calls, and it uses Saga and Redux.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Running the Project
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Clone the repository then run npm install in order to install the dependencies, then the application can be started.
 
-### `npm test`
+```shell
+git clone https://github.com/BilalAlGhazi/github-repositories.git
+cd github-repositories
+npm install
+npm run start
+```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This will run the application in development mode usint the development server that comes as part os the react scripts.
 
-### `npm run build`
+## Building the Project
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+In order to generate the production build, run the `npm run build` command, this will generate the production static files required for distribution.
