@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { 
   GET_CONTRIBUTORS_SUCCESS, 
   GET_CONTRIBUTORS_ERROR,
