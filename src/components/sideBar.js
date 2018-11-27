@@ -27,7 +27,6 @@ class SideBar extends React.Component {
     this.props.loadMoreRepositories(this.props.nextPageUrl);
   }
   render(){
-    console.log("Has more: ", this.props.hasMoreResults);
     return (
       <div className="sidebar-sticky" ref={(ref) => this.scrollParentRef = ref} id="scrollDiv">
         <ul className="nav flex-column">

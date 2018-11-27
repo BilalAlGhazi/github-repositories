@@ -1,4 +1,4 @@
-import {fork, put, takeEvery, take, call } from "redux-saga/effects";
+import {fork, put, takeEvery, call } from "redux-saga/effects";
 import axios from "axios";
 import parse from "parse-link-header";
 import { 
