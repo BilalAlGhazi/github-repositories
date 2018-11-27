@@ -3,13 +3,15 @@ import {
   GET_CONTRIBUTORS_SUCCESS, 
   GET_CONTRIBUTORS_ERROR,
   GET_CONTRIBUTORS,
-  LOAD_MORE_CONTRIBUTORS_SUCCESS
+  LOAD_MORE_CONTRIBUTORS_SUCCESS,
+  LOAD_MORE_CONTRIBUTORS_ERROR
 } from "../actions/actionTypes";
 
 const initialState = {
   contributorsList: [],
   hasMoreResults: false,
-  nextPageUrl: ""
+  nextPageUrl: "",
+  hasError: false
 };
 
 export const contributorsReducer = (state = initialState, action) => {
@@ -30,6 +32,16 @@ export const contributorsReducer = (state = initialState, action) => {
         contributorsList: state.contributorsList.concat(action.payload.data), 
         hasMoreResults: action.payload.hasMoreResults,
         nextPageUrl: action.payload.nextPageUrl
+      };
+    case GET_CONTRIBUTORS_ERROR:
+      return {
+        ...state,
+        hasError: true
+      };
+    case LOAD_MORE_CONTRIBUTORS_ERROR:
+      return {
+        ...state,
+        hasError: true
       };
     default:
       return state

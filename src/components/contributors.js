@@ -6,8 +6,8 @@ class Contributors extends React.Component {
   renderContributors = () => {
     return this.props.contributors.map((item, key) => {
       return (
-        <div className="col-lg-3 col-md-4 col-sm-6 contributor-card">
-          <div className="card" key={key}>
+        <div className="col-lg-3 col-md-4 col-sm-6 contributor-card" key={key}>
+          <div className="card">
             <img className="card-img-top" src={item.avatar_url} alt={item.login} />
             <div className="card-body">
               <h5 className="card-title">{item.login}</h5>
