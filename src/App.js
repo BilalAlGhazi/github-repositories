@@ -16,9 +16,7 @@ class App extends Component {
         <div className="container-fluid">
         <div className="row">
           <nav className="col-md-3 d-none d-md-block bg-light sidebar">
-            <div className="sidebar-sticky">
-              <SideBar />
-            </div>
+            <SideBar />
           </nav>
           <main role="main" className="col-md-8 ml-sm-auto col-lg-9 pt-3 px-4">
             <Switch>
