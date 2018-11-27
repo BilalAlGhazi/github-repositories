@@ -19,12 +19,8 @@ export const repoReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedRepository: repositoryObj
-      }
+      };
+    default:
+      return state
   }
-  return state
 } 
-
-
-// name, created_at, default_branch, description, forks_count, homepage, html_url, language, open_issues_count
-// stargazers_count, subscribers_count, watchers_count
-// https://api.github.com/repos/facebook/facebook-instant-articles-sdk-php/contributors

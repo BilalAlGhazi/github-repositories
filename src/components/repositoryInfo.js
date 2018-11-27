@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { selectRepository } from "../actions/repoActions";
+import Contributors from "./contributors";
 
 class RepositoryInfo extends React.Component {
   componentDidMount = () => {
@@ -56,9 +57,7 @@ class RepositoryInfo extends React.Component {
             </span>
           </div>
         </div>
-        
-        <h3 class="border-bottom">Contributors</h3>
-
+        <Contributors name={this.props.selectedRepository.name} />
       </Fragment>
     );
   }

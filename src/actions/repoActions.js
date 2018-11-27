@@ -1,7 +1,8 @@
 import { 
   GET_REPOSITORIES, 
-  GET_REPOSITORY, 
-  SELECT_REPOSITORY 
+  GET_CONTRIBUTORS, 
+  SELECT_REPOSITORY,
+  LOAD_MORE_CONTRIBUTORS
 } from "./actionTypes";
 
 export const getRepositoryList = () => {
@@ -11,10 +12,17 @@ export const getRepositoryList = () => {
   };
 };
 
-export const getRepositoryDetails = (repositoryName) => {
+export const getRepositoryContributors = (repositoryName) => {
   return {
-    type : GET_REPOSITORY,
+    type : GET_CONTRIBUTORS,
     payload : repositoryName
+  };
+};
+
+export const loadMoreContributors = (nextUrl) => {
+  return {
+    type : LOAD_MORE_CONTRIBUTORS,
+    payload : nextUrl
   };
 };
 

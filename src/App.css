@@ -49,3 +49,7 @@
 .watchers-icon{
   margin-right: 3px;
 }
+
+.card-columns {
+  column-count: 4;
+}

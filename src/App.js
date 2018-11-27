@@ -21,7 +21,7 @@ class App extends Component {
             </div>
           </nav>
           <main role="main" class="col-md-8 ml-sm-auto col-lg-9 pt-3 px-4">
-          <Switch>
+            <Switch>
               <Route exact
                 path="/" key="home"
                 component={Home}/>

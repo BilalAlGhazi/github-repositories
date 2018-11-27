@@ -8,7 +8,7 @@ const RepostoryListItem = (props) =>
         <Link className="nav-link active" to={"/repo/" + props.name}>
           {props.name}
           <span class="badge badge-secondary watchers-badge">
-            <i class="far fa-eye"></i>
+            <i class="far fa-eye watchers-icon"></i>
             {props.watchers_count}
           </span>
         </Link>
