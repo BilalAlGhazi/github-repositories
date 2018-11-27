@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import InfiniteScroll from "react-infinite-scroller";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { 
   getRepositoryList,
   loadMoreRepositories
@@ -15,6 +15,7 @@ class SideBar extends React.Component {
     return repositories.map((item, key) => {
       return (
         <RepositoryListItem 
+          key={key}
           name={item.name} 
           watchers_count={item.watchers_count} 
           id={item.id}
@@ -26,17 +27,17 @@ class SideBar extends React.Component {
     this.props.loadMoreRepositories(this.props.nextPageUrl);
   }
   render(){
+    console.log("Has more: ", this.props.hasMoreResults);
     return (
-      <div className="sidebar-sticky" ref={(ref) => this.scrollParentRef = ref}>
+      <div className="sidebar-sticky" ref={(ref) => this.scrollParentRef = ref} id="scrollDiv">
         <ul className="nav flex-column">
           <InfiniteScroll
-            pageStart={0}
-            loadMore={this.loadMore}
+            next={this.loadMore}
             hasMore={this.props.hasMoreResults}
             loader={<div>Loading ...</div>}
             useWindow={false}
-            getScrollParent={() => {return this.scrollParentRef}}
-            threshold={5}
+            scrollableTarget="scrollDiv"
+            dataLength={this.props.repositories.length}
           >
             { this.renderRepositories(this.props.repositories) }
           </InfiniteScroll>

@@ -43,7 +43,7 @@ function retrieveMoreRepositoryContributors(nextPageUrl){
   });
 }
 
-export function* getRepositoriesList() {
+function* getRepositoriesList() {
   try {
     const result = yield call(retrieveRepositories);
     // Check if the result is complete
@@ -76,7 +76,7 @@ export function* getRepositoriesList() {
   }
 }
 
-export function* loadMoreRepositoriesList(action) {
+function* loadMoreRepositoriesList(action) {
   try {
     const result = yield call(retrieveMoreRepositories, [action.payload]);
     // Check if the result is complete
@@ -109,7 +109,7 @@ export function* loadMoreRepositoriesList(action) {
   }
 }
 
-export function* getRepositoryContributors(action){
+function* getRepositoryContributors(action){
   try {
     const result = yield call(retrieveRepositoryContributors, [action.payload]);
     // Check if the result is complete
@@ -142,7 +142,7 @@ export function* getRepositoryContributors(action){
   }
 }
 
-export function* loadMoreContributors(action){
+function* loadMoreContributors(action){
   try {
     const result = yield call(retrieveMoreRepositoryContributors, [action.payload]);
     // Check if the result is complete
@@ -178,28 +178,28 @@ export function* loadMoreContributors(action){
 /**
  * Fires the saga for GET_REPOSITORIES action
  */
-export function* watchGetRepositories() {
+function* watchGetRepositories() {
   yield takeEvery(GET_REPOSITORIES, getRepositoriesList);
 }
 
 /**
  * Fires the saga for GET_REPOSITORY action
  */
-export function* watchGetRepositoryContributors() {
+function* watchGetRepositoryContributors() {
   yield takeEvery(SELECT_REPOSITORY, getRepositoryContributors);
 }
 
 /**
  * Fires the saga for LOAD_MORE_CONTRIBUTORS action
  */
-export function* watchLoadMoreContributors() {
+function* watchLoadMoreContributors() {
   yield takeEvery(LOAD_MORE_CONTRIBUTORS, loadMoreContributors);
 }
 
 /**
  * Fires the saga for LOAD_MORE_REPOSITORIES action
  */
-export function* watchLoadMoreRepositories() {
+function* watchLoadMoreRepositories() {
   yield takeEvery(LOAD_MORE_REPOSITORIES, loadMoreRepositoriesList);
 }
 
