@@ -23,3 +23,4 @@ This will run the application in development mode usint the development server t
 ## Building the Project
 
 In order to generate the production build, run the `npm run build` command, this will generate the production static files required for distribution.
+
